@@ -1,0 +1,89 @@
+extends layout
+
+block content
+  #wrapper
+    #logo
+      a(href='/')
+      img(src='/images/Untitled4.png')
+    #display
+      include userbar
+      P
+      | Please select your desired class and level. 
+      P
+      | For convenience sake, please use the following in-text links to take you to your desired class. To return to the top, please press "backspace" on your keyboard or simply scroll up. 
+      P
+      
+      <a href="#Barbarian1">Barbarian</a> | 
+      <a href="#Bard1">Bard</a> | 
+      <a href="#Cleric1">Cleric</a> | 
+      <a href="#Druid1">Druid</a> | 
+      <a href="#Fighter1">Fighter</a> | 
+      <a href="#Monk1">Monk</a>
+      P
+      <a href="#Paladin1">Paladin</a> | 
+      <a href="#Ranger1">Ranger</a> | 
+      <a href="#Rogue1">Rogue</a> | 
+      <a href="#Sorcerer1">Sorcerer</a> | 
+      <a href="#Wizard1">Wizard</a>
+     
+    
+    P &nbsp;
+    hr
+    P &nbsp;
+
+     -for (var level in items)
+        - var item = items[level]
+        div
+         <a id="#{item.name}#{item.level}"> <a href='/stat/#{level}'> #{item.name} - #{item.level} </a> </a>
+
+
+      //-for (var name in items)
+        //- var item = items[name]
+          // for item, i in items[name]
+            // if i % 44 === 0
+              //| #{item.name} cow
+      //-for (var level in items)
+       // - var item = items[level]
+       // div 
+        //a(href='/item/#{level}') #{item.name} - #{item.level}
+
+     //-for (var name in items)
+       // - var item = items[name]
+         //  for item, i in items[name]
+           // if i % 44 === 0
+        //div
+          //| Level #{item.name} cow
+          //-var colCount = 0
+           // for level, i in items
+             //if i % 44 === 0
+           //a(href='/stat/#{level}') #{item.level}
+
+          //for (var name in items)
+             //- var name = items[name]
+             //div 
+             //a(href='/stat/#{level}') #{item.name} */
+
+         
+
+
+    p &nbsp;
+    P &nbsp;
+    p &nbsp;
+    P &nbsp;
+    p &nbsp;
+    p &nbsp;
+    P &nbsp;
+    p &nbsp;
+    P &nbsp;
+    p &nbsp;
+    p &nbsp;
+    p &nbsp;
+    P &nbsp;
+    p &nbsp;
+    P &nbsp;
+    p &nbsp;
+    Please select a bar above to get started
+
+    p 
+    
+    include footer

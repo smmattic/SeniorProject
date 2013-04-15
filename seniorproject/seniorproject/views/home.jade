@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  #wrapper
+    #logo
+      a(href='/')
+        img(src='/images/Untitled2.png')
+    #display
+      #login    
+        form(method='post')
+          | Hail and well met, adventurer. Before you embark on your quest, please enter your name so the Wizard may know how to properly address you. When you are ready to begin, please press 'Log In.' 
+          P
+           P &nbsp; 
+          div
+          P 
+            
+            input(type='text', name='username')
+            input(type='submit', value='Log In')
+      
+    include footer

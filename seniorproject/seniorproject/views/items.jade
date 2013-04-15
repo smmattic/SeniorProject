@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  #wrapper
+    #logo
+      a(href='/')
+      img(src='/images/Untitled4.png')
+    #display
+      include userbar
+        
+     form 
+     select
+      -for (var level in items)
+        - var item = items[level]
+        div 
+        a(href='/item/#{level}') #{item.name} - #{item.level}
+        //option #{item.name}
+     //P
+    //select
+      //-for (var level in items)
+        //- var item = items[level]
+        //div 
+        //option #{item.level}
+       // a(href='/item/#{level}') #{item.name} - #{item.level}
+      P
+    
+    p
+    input(type="button", name="Submit", value="Submit")
+    p
+    P
+    Please select a bar above to get started
+
+    p 
+    
+    include footer

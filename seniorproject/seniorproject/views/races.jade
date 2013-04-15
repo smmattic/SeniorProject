@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  #wrapper
+    #logo
+      a(href='/')
+      img(src='/images/Untitled4.png')
+    #display
+      include userbar
+
+      Welcome #{username}. Please select your desired race. 
+        
+      //-for (var racename in races)
+        //- var racename = races[racename]
+
+        //div
+
+        //a(href='/race/#{races.racename}') #{racename}
+       //<a href="/race/#{racename}"> #{racename} kitty </a>
+      p
+      
+      p <a href="/race/Dwarf"> Dwarf</a>
+      p <a href="/race/Gnome"> Gnome </a>
+      p <a href="/race/Halfling"> Halfling </a>
+      p <a href="/race/HalfElf"> Half-Elf </a>
+      p <a href="/race/HalfOrc"> Half-Orc </a>
+      p <a href="/race/Human"> Human </a>
+      p <a href="/race/Elf"> Elf </a>
+
+
+
+    include footer
