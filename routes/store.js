@@ -59,13 +59,13 @@ var items = {
 };
 
 var races = {
-    Dwarf:{racename: 'Dwarf', strength:17, dexterity:11, constitution:14, intelligence:10, wisdom:10, charisma:10, sizes:'Medium', speed:20, ac:10, statadjust:'+2 con, -2 charisma', skilladjust:'+2 search on stone, +2 racial saving throw against poison, +2 racial saving throw against spell/spell-like'},
-    Elf:{racename: 'Elf', strength:10, dexterity:13, constitution:14, intelligence:17, wisdom:16, charisma:16, sizes:'Medium', speed:30, ac:13, statadjust:'+2 dex, -2 con', skilladjust:'Immune to sleep spells, +2 racial saving throw against enchantment spells/effects, +2 racial bonus on listen, search and spot'},
-    Gnome:{racename: 'Gnome', strength:12, dexterity:15, constitution:14, intelligence:14, wisdom:12, charisma:15, sizes:'Small', speed:20, ac:13, statadjust:'+2 con, -2 str', skilladjust:'Immune to sleep spells, +2 racial saving throw against enchantment spells/effects, +2 racial bonus on listen, search and spot'},
-    Human:{racename: 'Human', strength:15, dexterity:14, constitution:15, intelligence:13, wisdom:17, charisma:26, sizes:'Medium', speed:30, ac:12, statadjust:'None',  skilladjust:'+4 first level, +1 every level'},
-    HalfElf:{racename: 'Half-Elf', strength:11, dexterity:16, constitution:15, intelligence:13, wisdom:14, charisma:12, sizes:'Medium', speed:30, ac:13, statadjust:'None', skilladjust:'immunity to sleep spells, +2 racial saving throw against enchantment spells/effects, +1 racial bonus on listen, search, spot, +2 racial bonus on diplomacy/gather information'},
-    HalfOrc:{racename: 'Half-Orc', strength:16, dexterity:15, constitution:16, intelligence:10, wisdom:14, charisma:10, sizes:'Medium', speed:30, ac:12, statadjust:'+2 str, -2 int, -2 char', skilladjust:'None'},
-    Halfling:{racename: 'Halfling', strength:11, dexterity:17, constitution:14, intelligence:14, wisdom:13, charisma:14, sizes:'Small', speed:20, ac:14, statadjust:'+2 dex, -2 str', skilladjust:'+1 size bonus on attack roll, +1 on size bonus armor class, +4 size bonus on Hide checks, +2 racial bonus climb, jump, movie silently, +1 on all saving throws, +2 Listen'}
+    Dwarf:{racename: 'Dwarf', strength:17, dexterity:11, constitution:14, intelligence:10, wisdom:10, charisma:10, sizes:'Medium', speed:20, ac:10, statadjust:'+2 Constitution, -2 Charisma', skilladjust:'+2 to Search check on stone, +2 racial saving throw against poison, +2 racial saving throw against spells and spell-like effects'},
+    Elf:{racename: 'Elf', strength:10, dexterity:13, constitution:14, intelligence:17, wisdom:16, charisma:16, sizes:'Medium', speed:30, ac:13, statadjust:'+2 Dexterity, -2 Constitution', skilladjust:'Immune to sleep spells, +2 racial saving throw against enchantment spells and spell-like effects, +2 racial bonus on Listen, Search and Spot checks'},
+    Gnome:{racename: 'Gnome', strength:12, dexterity:15, constitution:14, intelligence:14, wisdom:12, charisma:15, sizes:'Small', speed:20, ac:13, statadjust:'+2 Constitution, -2 Strength', skilladjust:'Immune to sleep spells, +2 racial saving throw against enchantment spells and spell-like effects, +2 racial bonus on Listen, Search and Spot checks'},
+    Human:{racename: 'Human', strength:15, dexterity:14, constitution:15, intelligence:13, wisdom:17, charisma:26, sizes:'Medium', speed:30, ac:12, statadjust:'None',  skilladjust:'+4 extra skill points at first level, +1 extra skill point with every new level'},
+    HalfElf:{racename: 'Half-Elf', strength:11, dexterity:16, constitution:15, intelligence:13, wisdom:14, charisma:12, sizes:'Medium', speed:30, ac:13, statadjust:'None', skilladjust:'Immunity to sleep spells, +2 racial saving throw against enchantment spells and spell-like effects, +1 racial bonus on Listen, Search and Spot checks, +2 racial bonus on Diplomacy and Gather Information'},
+    HalfOrc:{racename: 'Half-Orc', strength:16, dexterity:15, constitution:16, intelligence:10, wisdom:14, charisma:10, sizes:'Medium', speed:30, ac:12, statadjust:'+2 Strength, -2 Intelligence, -2 Charisma', skilladjust:'None'},
+    Halfling:{racename: 'Halfling', strength:11, dexterity:17, constitution:14, intelligence:14, wisdom:13, charisma:14, sizes:'Small', speed:20, ac:14, statadjust:'+2 Dexterity, -2 Strength', skilladjust:'+1 size bonus on attack roll, +1 on size bonus armor class, +4 size bonus on Hide checks, +2 racial bonus on Climb, Jump and Move Silently checks, +1 on all saving throws, +2 on Listen checks'}
 
 };
 
@@ -243,17 +243,8 @@ exports.race = function(req, res) {
 
 exports.stats = function(req, res) {
     // don't let nameless people view the items, redirect them back to the homepage
-
-    console.log("Hello world")
-        // var names = [];
-          //for(var key in items){
-            //console.log(items[key]["name"]);
-          //}
     if (typeof req.session.username == 'undefined') res.redirect('/');
     //Title for website!
-
-
-    
     else res.render('stats', { title: 'Character Sheet Character Archetype Wizard - stats', username: req.session.username, items:items });
 };
 
@@ -329,11 +320,19 @@ exports.stat = function(req, res) {
 
 
 // handler for showing simple pages
-exports.page = function(req, res) {
+exports.select = function(req, res) {
     var name = req.query.name;
     var contents = {
         //about: 'Ninja Store sells the coolest ninja stuff in the world. Anyone shopping here is cool.',
         //contact: 'You can contact us at <address><strong>Ninja Store</strong>,<br>1, World Ninja Headquarters,<br>Ninja Avenue,<br>NIN80B7-JP,<br>Nihongo.</address>'
     };
     res.render('Select', { title: 'Character Sheet Character Archetype Wizard - ' + name, username: req.session.username, content:contents[name] });
+};
+
+
+exports.page = function(req, res) {
+    // don't let nameless people view the items, redirect them back to the homepage
+    if (typeof req.session.username == 'undefined') res.redirect('/');
+    //Title for website!
+    else res.render('page', { title: 'Character Sheet Character Archetype Wizard - page', username: req.session.username, items:items });
 };

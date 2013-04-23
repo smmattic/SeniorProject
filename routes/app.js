@@ -1,4 +1,4 @@
-var databaseUrl = "ihateyoumongo"; // renamethis
+var databaseUrl = "MongoDB"; // renamethis
 var collections = ["users"]
 var db = require("mongojs").connect(databaseUrl, collections);
 

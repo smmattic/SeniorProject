@@ -3,74 +3,75 @@ extends layout
 block content
   #wrapper
     #logo
-      img(src='/images/Untitled4.png')
+      <a href='/select'><img src='/images/Untitled4.png'></a>
     #display
       include userbar
-      
-      p Welcome, #{username}. This page is #{name} at level #{level}. PUPPIES AND RAINBOWS FOR TESTING
-      p
+      P
+      P &nbsp;
+      p Welcome, <b>#{username}</b>. This page displays the skills for a <b>#{name}</b> at level <b>#{level}</b>.
+      p &nbsp;
       table#table
         th Skill Points
           tr
             td Class:
-            td #{name}
+            td <b>#{name}</b>
           tr
             td Level:
-            td #{level}
+            td <b>#{level}</b>
           tr
             td Appraise:
-            td #{appraise}
+            td <b>#{appraise}</b>
           tr
             td Balance:
-            td #{balance}
+            td <b>#{balance}</b>
           tr
             td Bluff:
-            td #{bluff}
+            td <b>#{bluff}</b>
           tr
             td Climb:
-            td #{climb}
+            td <b>#{climb}</b>
           tr
             td Concentration:
-            td #{concentration}
+            td <b>#{concentration}</b>
         tr
             td Craft:
-            td #{craft}
+            td <b>#{craft}</b>
           tr
-            td Decipher Script:
-            td #{decipher_script}
+            td Decipher Script:</b>
+            td <b>#{decipher_script}
           tr
             td Diplomacy:
-            td #{diplomacy}
+            td <b>#{diplomacy}</b>
           tr
             td Disable Device:
-            td #{disable_device}
+            td <b>#{disable_device}</b>
           tr
             td Disguise:
-            td #{disguise}
+            td <b>#{disguise}</b>
           tr
             td Escape Artist:
-            td #{escape_artist}
+            td <b>#{escape_artist}</b>
           tr
             td Forgery:
-            td: #{forgery}
+            td<b> <b>#{forgery}</b>
           tr
             td Gather Information:
-            td #{gather_information}
+            td <b>#{gather_information}</b>
           tr
             td Handle Animal:
-            td #{handle_animal}
+            td <b>#{handle_animal}</b>
           tr
             td Heal:
-            td #{heal}
+            td <b>#{heal}</b>
           tr
             td Hide:
-            td #{hide}
+            td <b>#{hide}</b>
           tr
             td Intimidate:
-            td #{intimidate}
+            td <b>#{intimidate}</b>
           tr
             td Jump:
-            td #{jump}
+            td <b>#{jump}</b>
           tr
             td
             td
@@ -78,102 +79,106 @@ block content
                 th Knowledge:
                   tr
                     td &nbsp; &nbsp; Arcana:
-                    td #{knowledge_arcana}
+                    td <b>#{knowledge_arcana}</b>
                   tr
                     td &nbsp; &nbsp; *Architecture:
-                    td #{knowledge_architecture_and_engineering}
+                    td <b>#{knowledge_architecture_and_engineering}</b>
                   tr
                     td &nbsp; &nbsp; Dungeoneering:
-                    td #{knowledge_dungeoneering}
+                    td <b>#{knowledge_dungeoneering}</b>
                   tr
                     td &nbsp; &nbsp; Geography:
-                    td #{knowledge_geography}
+                    td <b>#{knowledge_geography}</b>
                   tr 
                     td &nbsp; &nbsp; History:
-                    td #{knowledge_history}
+                    td <b>#{knowledge_history}</b>
                   tr 
                     td &nbsp; &nbsp; Local:
-                    td #{knowledge_local}
+                    td <b>#{knowledge_local}</b>
                   tr 
                     td &nbsp; &nbsp; Nature:
-                    td #{knowledge_nature}
+                    td <b>#{knowledge_nature}</b>
                   tr 
                     td &nbsp; &nbsp; Nobility/Royalty:
-                    td #{knowledge_nobility_and_royalty}
+                    td <b>#{knowledge_nobility_and_royalty}</b>
                   tr 
                     td &nbsp; &nbsp; Religion:
-                    td #{knowledge_religion}
+                    td <b>#{knowledge_religion}</b>
                   tr 
                     td &nbsp; &nbsp; Planes:
-                    td #{knowledge_planes}
+                    td <b>#{knowledge_planes}</b>
           tr
             td
             td
           tr
             td Listen: 
-            td #{listen}
+            td <b>#{listen}</b>
           tr
             td Move Silently:
-            td #{move_silently}
+            td <b>#{move_silently}</b>
           tr
             td Open Lock:
-            td #{open_lock}
+            td <b>#{open_lock}</b>
           tr
             td Perform:
-            td #{perform}
+            td <b>#{perform}</b>
           tr
             td Profession:
-            td #{profession}
+            td <b>#{profession}</b>
           tr
             td Ride:
-            td #{ride}
+            td <b>#{ride}</b>
           tr
             td Search:
-            td #{search}
+            td <b>#{search}</b>
           tr 
             td Sense Motive:
-            td #{sense_motive}
+            td <b>#{sense_motive}</b>
           tr
             td Sleight of Hand:
-            td #{sleight_of_hand}
+            td <b>#{sleight_of_hand}</b>
           tr 
             td Spellcraft:
-            td #{spellcraft}
+            td <b>#{spellcraft}</b>
           tr
             td Spot:
-            td #{spot}
+            td <b>#{spot}</b>
           tr
             td Survival:
-            td #{survival}
+            td <b>#{survival}</b>
           tr
             td Swim:
-            td #{swim}
+            td <b>#{swim}</b>
           tr 
             td Tumble:
-            td #{tumble}
+            td <b>#{tumble}</b>
           tr
             td Use Magic Device:
-            td #{use_magic_device}
+            td <b>#{use_magic_device}</b>
           tr 
             td Use Rope:
-            td #{use_rope}
+            td <b>#{use_rope}</b>
       p
      
       table#bonuses
         th Bonuses and Saves
           tr
             td Base Attack Bonus: 
-            td #{base_attack_bonus}
+            td <b>#{base_attack_bonus}</b>
           tr
             td Fortitude Save: 
-            td #{fort_save}
+            td <b>#{fort_save}</b>
           tr 
             td Reflex Save
-            td #{ref_save}
+            td <b>#{ref_save}</b>
           tr
             td Willpower Save
-            td #{will_save}
+            td <b>#{will_save}</b>
     
-      p Please remember the above stats are only the baseline recommendations and do not include all parts of the character sheet.
+      p The number of skill points available to the <b>#{name}</b> at level <b>#{level}</b> is: <b>#{stat_points}</b>, based off an Intelligence score of <b>#{base_int}</b>. Please note that the above numbers are not static for every #{name} and were created through my own dice rolls and calculations. 
+      p 
+      p Each skill with a number beside it represents a class skill for the <b>#{name}</b>. Please remember the above numbers only represent the skills, bonuses and savese recommendations and do not include all parts of the character sheet. 
+      
+     
       
     include footer

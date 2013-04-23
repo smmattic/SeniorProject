@@ -3,13 +3,13 @@ extends layout
 block content
   #wrapper
     #logo
-      a(href='/')
-      img(src='/images/Untitled4.png')
+      <a href='/select'><img src='/images/Untitled4.png'></a>
     #display
       include userbar
+      P
+      P &nbsp;
       
-      p Welcome, <b> #{username} </b>. This will be the page for <b>#{racename}</b>. 
-      p
+      p Welcome, <b>#{username}</b>. This page outlines the points for the <b>#{racename}</b>. 
       table#races
         th Skill Points
           tr
@@ -41,11 +41,12 @@ block content
             td <b> #{ac} </b> 
       p
      
-      These are the stat adjustments for <b>#{racename}</b>: #{statadjust}
+      | Stat adjustments for the <b>#{racename}</b>: #{statadjust}
       P
-      P These are the skill adjustments for <b>#{racename}</b>: #{skilladjust}
-      P The skill adjustments should be added into the appropriate boxes within the character sheet - they are not added onto the scores listed above. 
+      P Skill adjustments for the <b>#{racename}</b>: #{skilladjust}
+      <hr>
+      P The skill adjustments shown above should be added into the appropriate boxes on the character sheet - they are not added directly onto the scores listed above.  
     
-      p Please remember the above stats are only the baseline recommendations and do not include all parts of the character sheet.
+      p Please remember the above numbers are only baseline recommendations and do not include all parts of the character sheet. The remaining portions for the character sheet are dependent on user choice. 
       
     include footer

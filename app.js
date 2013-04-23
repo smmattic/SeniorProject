@@ -28,14 +28,11 @@ app.get('/', store.home);
 app.post('/', store.home_post_handler);
 //add app.get('/name', store.select (the second part is a function))
 app.get('/select', store.select);
-// display the list of item
-//app.get('/items', store.items);
 app.get('/races', store.races);
 app.get('/race/:id', store.race);
-//app.get('/item/:id', store.item);
+app.get('/page', store.page);
 // show general pages
-
-app.get('/stats', store.stats)
+app.get('/stats', store.stats);
 app.get('/stat/:id', store.stat);
 app.get('/logout', function(req, res) {
     // delete the session variable

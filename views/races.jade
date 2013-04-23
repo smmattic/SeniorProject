@@ -3,12 +3,14 @@ extends layout
 block content
   #wrapper
     #logo
-      a(href='/')
-      img(src='/images/Untitled4.png')
+      <a href='/select'><img src='/images/Untitled4.png'></a>
     #display
       include userbar
+      P
+      P &nbsp;
 
-      Welcome #{username}. Please select your desired race. 
+      | Welcome <b>#{username}</b>. Please select your desired race. 
+      P
         
       //-for (var racename in races)
         //- var racename = races[racename]
